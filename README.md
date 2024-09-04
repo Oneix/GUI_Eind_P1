@@ -37,6 +37,4 @@ this is how it looks like. This is the commit link of the changes: https://githu
 
 
 ![image](https://github.com/user-attachments/assets/73690aa2-5e83-44e9-8c2d-f07300a200c6)
-Keep in mind the button "Verwijderen is highlighted"
-
-سع
+Keep in mind the button "Verwijderen" is highlighted
