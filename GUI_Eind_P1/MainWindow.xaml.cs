@@ -17,9 +17,19 @@ namespace GUI_Eind_P1
     /// </summary>
     public partial class MainWindow : Window
     {
+        //private vars
+
+        //booleans
+        bool canChangeDates = true;
+
         public MainWindow()
         {
             InitializeComponent();
+            SetupVars();
+        }
+        private void SetupVars()
+        {
+            canChangeDates = true;
         }
 
         private void Opslaan_Click(object sender, RoutedEventArgs e)
@@ -33,6 +43,63 @@ namespace GUI_Eind_P1
         }
 
         private void Dupliceren_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ConditieComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DefectComboBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DefectComboBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PrijsTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void NaamTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+
+         
+        private void CalenderChecker_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (canChangeDates)
+            {
+                DelayDateChanger();
+                DatumPickerChecker.SelectedDate = CalenderChecker.SelectedDate;
+            }
+        }
+
+        private void DatumPickerChecker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (canChangeDates)
+            {
+                DelayDateChanger();
+                CalenderChecker.SelectedDate = DatumPickerChecker.SelectedDate;
+            }
+        }
+
+        public async void DelayDateChanger()
+        {
+            canChangeDates = false;
+            await Task.Delay(100);
+            canChangeDates = true;
+        }
+
+        private void AddPic_Click(object sender, RoutedEventArgs e)
         {
 
         }

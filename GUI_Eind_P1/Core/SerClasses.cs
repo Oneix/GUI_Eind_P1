@@ -18,6 +18,8 @@ namespace GUI_Eind_P1.Core
             public string Naam { get; set; }
             public string DatumBinnen { get; set; }
 
+            public string PathImage { get; set; }
+
             public int Prijs { get; set; }
 
             public Conditie Conditie { get; set; }
