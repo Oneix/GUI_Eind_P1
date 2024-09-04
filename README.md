@@ -33,5 +33,10 @@ Final school project designed to showcase my advanced GUI skills through the dev
 this is how it looks like. This is the commit link of the changes: https://github.com/Oneix/GUI_Eind_P1/commit/7c6e8698132ff8b1c4470db8ec200628029e6266
 
 
+- I have set up the Top/Middle party of the main view this is an example how it will look like:
+
+
+![image](https://github.com/user-attachments/assets/73690aa2-5e83-44e9-8c2d-f07300a200c6)
+Keep in mind the button "Verwijderen is highlighted"
 
 سع
