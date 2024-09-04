@@ -27,3 +27,9 @@ Final school project designed to showcase my advanced GUI skills through the dev
 - The theme was about Laptops.
 
 **GUI Design**
+- I have set up the left side bar that has everything needed for the left side bar.
+![image](https://github.com/user-attachments/assets/775838f4-97b4-444d-871f-b23c796c8eef) this is how it looks like.
+
+
+
+سع
