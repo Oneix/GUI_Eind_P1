@@ -50,10 +50,77 @@
         
         <Grid x:Name="MainView" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="130"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <Grid x:Name="TopRow" Grid.Row="0" Margin="5" Background="{StaticResource Background2Brush}">
+                <TextBlock Style="{StaticResource BigTitleText}" Text="Product check-up" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 9 0 0"/>
+                <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="0,35,0,0">
+                    <DockPanel>
+                        <Grid Width="226" HorizontalAlignment="Left">
+                            <Button Margin="5" Style="{StaticResource DefaultButton}" Background="{StaticResource BorderBrush}"/>
+                            <Grid IsHitTestVisible="False">
+                                <Icon:PackIconMaterial Kind="laptop" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" Margin="12,0,0,0" Height="50" Width="50"/>
+                                <StackPanel VerticalAlignment="Center" Margin="70,0,0,0">
+                                    <TextBlock Style="{StaticResource TitleText}" Text="Laptop 1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Style="{StaticResource MiniText}" Text="● Gechecked ● Goed ● € 1421,00" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Width="226" HorizontalAlignment="Left">
+                            <Button Margin="5" Style="{StaticResource DefaultButton}" Background="{StaticResource BorderBrush}"/>
+                            <Grid IsHitTestVisible="False">
+                                <Icon:PackIconMaterial Kind="laptop" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" Margin="12,0,0,0" Height="50" Width="50"/>
+                                <StackPanel VerticalAlignment="Center" Margin="70,0,0,0">
+                                    <TextBlock Style="{StaticResource TitleText}" Text="Laptop 32" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Style="{StaticResource MiniText}" Text="● Gechecked ● Nieuw ● € 1199,99" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                        <Grid Width="226" HorizontalAlignment="Left">
+                            <Button Margin="5" Style="{StaticResource DefaultButton}" Background="{StaticResource BorderBrush}"/>
+                            <Grid IsHitTestVisible="False">
+                                <Icon:PackIconMaterial Kind="laptop" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" Margin="12,0,0,0" Height="50" Width="50"/>
+                                <StackPanel VerticalAlignment="Center" Margin="70,0,0,0">
+                                    <TextBlock Style="{StaticResource TitleText}" Text="Laptop SD1A" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Style="{StaticResource MiniText}" Text="● Defect ● Kapot ● € 102,00" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                        <Grid Width="226" HorizontalAlignment="Left">
+                            <Button Margin="5" Style="{StaticResource DefaultButton}" Background="{StaticResource BorderBrush}"/>
+                            <Grid IsHitTestVisible="False">
+                                <Icon:PackIconMaterial Kind="laptop" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" Margin="12,0,0,0" Height="50" Width="50"/>
+                                <StackPanel VerticalAlignment="Center" Margin="70,0,0,0">
+                                    <TextBlock Style="{StaticResource TitleText}" Text="Laptop 6" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Style="{StaticResource MiniText}" Text="● Moet gechecked worden." VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </DockPanel>
+                </ScrollViewer>
+            </Grid>
+            <Grid x:Name="MiddleRow" Grid.Row="1" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    
+                </Grid>
+            </Grid>
+            <Grid x:Name="ButtomRow" Grid.Row="2" Margin="5">
+
+            </Grid>
         </Grid>
     </Grid>
 </Window>
