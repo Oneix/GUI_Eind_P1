@@ -1,4 +1,4 @@
-# GUI Final Periode 1
+![image](https://github.com/user-attachments/assets/9df9638d-b1b6-47c3-acda-bf16800fed1f)# GUI Final Periode 1
 
 Final school project designed to showcase my advanced GUI skills through the development of a comprehensive application. This project aims to demonstrate my expertise in creating intuitive and visually appealing interfaces and is worth 25 study points.
 
@@ -40,4 +40,8 @@ this is how it looks like. This is the commit link of the changes: https://githu
 Keep in mind the button "Verwijderen" is highlighted
 
 Update:
-I am gonna implement full functionality to this project and it will be a compination of GUI and Programming. So i can get both done.
+I am implementing full functionality to this project and it will be a compination of GUI and Programming. So i can get both done.
+
+- I finished the whole look of the GUI this i the result:
+- ![image](https://github.com/user-attachments/assets/d3d1a15b-f335-4117-b166-a829e2ddec89)
+- **Im gonna work now on making it functional**
