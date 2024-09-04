@@ -10,6 +10,7 @@ Final school project designed to showcase my advanced GUI skills through the dev
 - Calendar
 - RadioButton
 - ComboBox with items
+
 **Additional Requirements:**
 - Images: Include and properly place three images in the gui.
 - Window Size: the window size must be 600 x 1000 p.
