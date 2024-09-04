@@ -24,5 +24,6 @@ Final school project designed to showcase my advanced GUI skills through the dev
 
 **Theme**
 - For the idea I chose to go with a simple product management app for stores... I will add simple functionality to it.
+- The theme was about Laptops.
 
 **GUI Design**
