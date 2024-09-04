@@ -23,4 +23,6 @@ Final school project designed to showcase my advanced GUI skills through the dev
 # My progress:
 
 **Theme**
-For the theme I chose to go with a simple product management for stores... I will add simple functionality to it.
+- For the theme I chose to go with a simple product management for stores... I will add simple functionality to it.
+
+**GUI Design**
