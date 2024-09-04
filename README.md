@@ -1,4 +1,4 @@
-# GUI Final Periode 1
+![image](https://github.com/user-attachments/assets/9df9638d-b1b6-47c3-acda-bf16800fed1f)# GUI Final Periode 1
 
 Final school project designed to showcase my advanced GUI skills through the development of a comprehensive application. This project aims to demonstrate my expertise in creating intuitive and visually appealing interfaces and is worth 25 study points.
 
@@ -33,5 +33,15 @@ Final school project designed to showcase my advanced GUI skills through the dev
 this is how it looks like. This is the commit link of the changes: https://github.com/Oneix/GUI_Eind_P1/commit/7c6e8698132ff8b1c4470db8ec200628029e6266
 
 
+- I have set up the Top/Middle party of the main view this is an example how it will look like:
 
-سع
+
+![image](https://github.com/user-attachments/assets/73690aa2-5e83-44e9-8c2d-f07300a200c6)
+Keep in mind the button "Verwijderen" is highlighted
+
+Update:
+I am implementing full functionality to this project and it will be a compination of GUI and Programming. So i can get both done.
+
+- I finished the whole look of the GUI this i the result:
+- ![image](https://github.com/user-attachments/assets/d3d1a15b-f335-4117-b166-a829e2ddec89)
+- **Im gonna work now on making it functional**
