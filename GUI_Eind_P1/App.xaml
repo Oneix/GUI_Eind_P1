@@ -4,6 +4,16 @@
              xmlns:local="clr-namespace:GUI_Eind_P1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="BackgroundBrush" Color="#FF1F1F1F" />
+        <SolidColorBrush x:Key="BorderBrush" Color="#FF383838" />
+        <SolidColorBrush x:Key="OuterBorderBrush" Color="#FF2E2E2E" />
+        <SolidColorBrush x:Key="ButtonBrush" Color="#FF424242" />
+        <SolidColorBrush x:Key="TextBrush" Color="#FFFFFFFF" />
+
+        <FontFamily x:Key="MainFontFamily">Bahnschrift</FontFamily>
+        <FontFamily x:Key="SeconderyFontFamily">Arial</FontFamily>
+        <FontFamily x:Key="ThirdFontFamily">Roboto</FontFamily>
+
+
     </Application.Resources>
 </Application>
