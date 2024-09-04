@@ -28,7 +28,9 @@ Final school project designed to showcase my advanced GUI skills through the dev
 
 **GUI Design**
 - I have set up the left side bar that has everything needed for the left side bar.
-![image](https://github.com/user-attachments/assets/775838f4-97b4-444d-871f-b23c796c8eef) this is how it looks like.
+
+![image](https://github.com/user-attachments/assets/775838f4-97b4-444d-871f-b23c796c8eef) 
+this is how it looks like. This is the commit link of the changes: https://github.com/Oneix/GUI_Eind_P1/commit/7c6e8698132ff8b1c4470db8ec200628029e6266
 
 
 
