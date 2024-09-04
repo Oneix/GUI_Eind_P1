@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GUI_Eind_P1.Core;
 
 namespace GUI_Eind_P1
 {
@@ -19,6 +20,21 @@ namespace GUI_Eind_P1
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Opslaan_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Verwijderen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Dupliceren_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
