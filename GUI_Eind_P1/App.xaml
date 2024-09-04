@@ -1,19 +1,128 @@
 ﻿<Application x:Class="GUI_Eind_P1.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:GUI_Eind_P1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="BackgroundBrush" Color="#FF1F1F1F" />
-        <SolidColorBrush x:Key="BorderBrush" Color="#FF383838" />
-        <SolidColorBrush x:Key="OuterBorderBrush" Color="#FF2E2E2E" />
-        <SolidColorBrush x:Key="ButtonBrush" Color="#FF424242" />
-        <SolidColorBrush x:Key="TextBrush" Color="#FFFFFFFF" />
+        <ResourceDictionary>
 
-        <FontFamily x:Key="MainFontFamily">Bahnschrift</FontFamily>
-        <FontFamily x:Key="SeconderyFontFamily">Arial</FontFamily>
-        <FontFamily x:Key="ThirdFontFamily">Roboto</FontFamily>
+            <SolidColorBrush x:Key="BackgroundBrush" Color="#FF1F1F1F" />
+            <SolidColorBrush x:Key="BorderBrush" Color="#FF383838" />
+            <SolidColorBrush x:Key="OuterBorderBrush" Color="#FF2E2E2E" />
+            <SolidColorBrush x:Key="ButtonBrush" Color="#FF424242" />
+            <SolidColorBrush x:Key="ButtonBrushPressed" Color="#FF676767" />
+            <SolidColorBrush x:Key="ButtonBrushDefault" Color="Transparent" />
+            <SolidColorBrush x:Key="ButtonBrushDefaultHighlighted" Color="#FF505050" />
+            <SolidColorBrush x:Key="ButtonBrushDefaultPressed" Color="#FF424242" />
+            <SolidColorBrush x:Key="TextBrush" Color="#FFFFFFFF" />
 
+            <FontFamily x:Key="MainFontFamily">Bahnschrift</FontFamily>
+            <FontFamily x:Key="SeconderyFontFamily">Arial</FontFamily>
+            <FontFamily x:Key="ThirdFontFamily">Roboto</FontFamily>
 
+            
+            
+            
+            <Style x:Key="RadioButtonsLeftBar" TargetType="RadioButton">
+                <Setter Property="Background" Value="{StaticResource ButtonBrush}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Margin" Value="6"/>
+                <Setter Property="Height" Value="150"/>
+                <Setter Property="VerticalAlignment" Value="Top" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Border x:Name="BorderModifier"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="4">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  ContentSource="Content" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="BorderModifier" Property="Background" Value="{StaticResource ButtonBrushPressed}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            
+            
+            
+            
+            
+
+            <Style x:Key="DefaultButton" TargetType="Button">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+                <Setter Property="FontFamily" Value="{StaticResource MainFontFamily}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="Light" />
+                <Setter Property="Background" Value="{StaticResource ButtonBrushDefault}" />
+                <Setter Property="BorderBrush" Value="{StaticResource ButtonBrushDefault}" />
+                <Setter Property="BorderThickness" Value="1" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="BorderModifier"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="4">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      ContentSource="Content" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="BorderModifier" Property="Background" Value="{StaticResource ButtonBrushDefaultHighlighted}" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="BorderModifier" Property="Background" Value="{StaticResource ButtonBrushDefaultPressed}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            
+            
+            
+
+            <Style x:Key="DefaultText" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+                <Setter Property="FontFamily" Value="{StaticResource MainFontFamily}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="Light" />
+            </Style>
+            <Style x:Key="TitleText" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+                <Setter Property="FontFamily" Value="{StaticResource MainFontFamily}" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontWeight" Value="Light" />
+            </Style>
+
+            <Style x:Key="SeconderyText" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+                <Setter Property="FontFamily" Value="{StaticResource SeconderyFontFamily}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="Light"/>
+                <Setter Property="FontStyle" Value="Italic"/>
+            </Style>
+            <Style x:Key="ThirdText" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+                <Setter Property="FontFamily" Value="{StaticResource ThirdFontFamily}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontStyle" Value="Oblique"/>
+            </Style>
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
