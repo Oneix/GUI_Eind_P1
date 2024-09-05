@@ -171,6 +171,8 @@ namespace ProductManagement
             Data.Laptops[CurrentLaptop].DatumBinnen = MainWindow.Instance.DatumPickerChecker.SelectedDate;
 
             UiElementsManagement.RefreshProducts();
+
+            Data.DirtyView = false;
         }
 
         public static void RemoveProduct()
