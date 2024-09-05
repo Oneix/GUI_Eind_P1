@@ -258,5 +258,31 @@ namespace GUI_Eind_P1
         {
             Application.Current.Shutdown();
         }
+
+        private void ViewButtonsClick(object sender, RoutedEventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+            switch (radioButton.Name)
+            {
+                case "StartpaginaRadiobutton":
+                    ShowView(StartpaginaView);
+                    break;
+                case "CheckupsRadiobutton":
+                    ShowView(CheckupsView);
+                    break;
+                case "TeamRadiobutton":
+                    ShowView(TeamView);
+                    break;
+            }
+        }
+
+        public void ShowView(Grid view)
+        {
+            StartpaginaView.Visibility = Visibility.Collapsed;
+            CheckupsView.Visibility = Visibility.Collapsed;
+            TeamView.Visibility = Visibility.Collapsed;
+
+            view.Visibility = Visibility.Visible;
+        }
     }
 }

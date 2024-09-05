@@ -17,21 +17,21 @@
         <Grid x:Name="LeftBar" Grid.Column="0" Background="{StaticResource OuterBorderBrush}">
             <StackPanel>
                 <Grid>
-                    <RadioButton Style="{StaticResource RadioButtonsLeftBar}" GroupName="Leftbar"/>
+                    <RadioButton Style="{StaticResource RadioButtonsLeftBar}" GroupName="Leftbar" x:Name="StartpaginaRadiobutton" Click="ViewButtonsClick"/>
                     <StackPanel Margin="0 5 0 0" VerticalAlignment="Center" IsHitTestVisible="False">
                         <Icon:PackIconMaterial Kind="Graph" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Width="60"/>
                         <TextBlock Style="{StaticResource TitleText}" Text="Startpagina" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                     </StackPanel>
                 </Grid>
                 <Grid>
-                    <RadioButton Style="{StaticResource RadioButtonsLeftBar}" GroupName="Leftbar" IsChecked="True"/>
+                    <RadioButton Style="{StaticResource RadioButtonsLeftBar}" GroupName="Leftbar" IsChecked="True" x:Name="CheckupsRadiobutton" Click="ViewButtonsClick"/>
                     <StackPanel Margin="0 5 0 0" VerticalAlignment="Center" IsHitTestVisible="False">
                         <Icon:PackIconMaterial Kind="Checkbook" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Width="60"/>
                         <TextBlock Style="{StaticResource TitleText}" Text="Check-ups" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                     </StackPanel>
                 </Grid>
                 <Grid>
-                    <RadioButton Style="{StaticResource RadioButtonsLeftBar}" GroupName="Leftbar"/>
+                    <RadioButton Style="{StaticResource RadioButtonsLeftBar}" GroupName="Leftbar" x:Name="TeamRadiobutton" Click="ViewButtonsClick"/>
                     <StackPanel Margin="0 5 0 0" VerticalAlignment="Center" IsHitTestVisible="False">
                         <Icon:PackIconMaterial Kind="AccountGroup" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Width="60"/>
                         <TextBlock Style="{StaticResource TitleText}" Text="Team" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
@@ -47,8 +47,18 @@
                 </Grid>
             </Grid>
         </Grid>
-        
-        <Grid x:Name="MainView" Grid.Column="1">
+        <Grid x:Name="StartpaginaView" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="5" Background="{StaticResource Background2Brush}">
+                <TextBlock Style="{StaticResource BigTitleText}" Text="Startpagina" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 9 0 0"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="CheckupsView" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="130"/>
                 <RowDefinition Height="*"/>
@@ -56,7 +66,7 @@
             </Grid.RowDefinitions>
 
             <Grid x:Name="TopRow" Grid.Row="0" Margin="5" Background="{StaticResource Background2Brush}">
-                <TextBlock Style="{StaticResource BigTitleText}" Text="Product check-up" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 9 0 0"/>
+                <TextBlock Style="{StaticResource BigTitleText}" Text="Check-ups" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 9 0 0"/>
                 <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="0,35,0,0">
                     <DockPanel x:Name="ParentProducts">
 
@@ -193,6 +203,17 @@
                     </Grid>
                 </Border>
 
+            </Grid>
+        </Grid>
+        <Grid x:Name="TeamView" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="5" Background="{StaticResource Background2Brush}">
+                <TextBlock Style="{StaticResource BigTitleText}" Text="Team" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 9 0 0"/>
             </Grid>
         </Grid>
     </Grid>
