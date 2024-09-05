@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GUI_Eind_P1.Core;
+using ProductManagement;
 
 namespace GUI_Eind_P1
 {
@@ -62,17 +63,17 @@ namespace GUI_Eind_P1
 
         private void Opslaan_Click(object sender, RoutedEventArgs e)
         {
-
+            ProductManager.SaveProduct();
         }
 
         private void Verwijderen_Click(object sender, RoutedEventArgs e)
         {
-
+            ProductManager.RemoveProduct();
         }
 
         private void Dupliceren_Click(object sender, RoutedEventArgs e)
         {
-
+            ProductManager.Dublicate();
         }
         private void AddPic_Click(object sender, RoutedEventArgs e)
         {
@@ -80,7 +81,11 @@ namespace GUI_Eind_P1
         }
         public void ProductClick(object sender, RoutedEventArgs e)
         {
+            Button button = (Button)sender;
+            SerClasses.Product product = button.Tag as SerClasses.Product;
 
+            ListCheckUps.UnselectAll();
+            ProductManager.InspectProduct(product);
         }
 
 
@@ -139,6 +144,16 @@ namespace GUI_Eind_P1
             canChangeDates = false;
             await Task.Delay(100);
             canChangeDates = true;
+        }
+
+        private void NumberOnlyTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = !isnumber(e.Text);
+        }
+
+        private bool isnumber(string text)
+        {
+            return int.TryParse(text, out _);
         }
     }
 }

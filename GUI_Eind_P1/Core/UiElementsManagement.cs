@@ -14,12 +14,23 @@ namespace GUI_Eind_P1.Core
     {
         public static void Start()
         {
-            ProductManager.AddProductData(new SerClasses.Product("test", "", 2123));
+            SetupMainWindow();
+
+            AddDefaultProducts();
             RefreshProducts();
         }
 
+        public static void SetupMainWindow()
+        {
+            MainWindow.Instance.MiddleRow.Visibility = Visibility.Collapsed;
+            MainWindow.Instance.ButtomRow.Visibility = Visibility.Collapsed;
+        }
+
+
         public static void RefreshProducts()
         {
+            ProductManager.RefreshProductsData();
+
             MainWindow.Instance.ParentProducts.Children.Clear();
 
             foreach(var prod in Data.Laptops)
@@ -28,5 +39,45 @@ namespace GUI_Eind_P1.Core
             }
         }
 
+        private static void AddDefaultProducts()
+        {
+            ProductManager.AddProductData(new SerClasses.Product(DateTime.Now.AddDays(5), "MSI AS11", "", 1799));
+            ProductManager.AddProductData(new SerClasses.Product(DateTime.Now.AddDays(-3), "ASUS TUF", "", 1200));
+        }
+
+
+        public static void InspectProductGUI(SerClasses.Product prod)
+        {
+            if (prod != null)
+            {
+                MainWindow.Instance.MiddleRow.Visibility = Visibility.Visible;
+                MainWindow.Instance.ButtomRow.Visibility = Visibility.Visible;
+
+                MainWindow.Instance.NaamTextBox.Text = prod.Naam;
+                MainWindow.Instance.PrijsTextBox.Text = prod.Prijs.ToString();
+
+                if(prod?.Checkups?.Any() == true && MainWindow.Instance.ListCheckUps.SelectedItem != null)
+                {
+                    MainWindow.Instance.ConditieHolder.Visibility = Visibility.Visible;
+                    MainWindow.Instance.DefectHolder.Visibility = Visibility.Visible;
+
+                    MainWindow.Instance.ConditieComboBox.SelectedValue = (int)prod.Checkups[MainWindow.Instance.ListCheckUps.SelectedIndex].Conditie;
+                    MainWindow.Instance.DefectComboBox.IsChecked = prod.Checkups.Last().Defect;
+                }
+                else
+                {
+                    MainWindow.Instance.ConditieHolder.Visibility = Visibility.Collapsed;
+                    MainWindow.Instance.DefectHolder.Visibility = Visibility.Collapsed;
+                }
+
+                MainWindow.Instance.DatumPickerChecker.SelectedDate = prod.DatumBinnen;
+                MainWindow.Instance.CalenderChecker.SelectedDate = prod.DatumBinnen;
+            }
+            else
+            {
+                MainWindow.Instance.MiddleRow.Visibility = Visibility.Collapsed;
+                MainWindow.Instance.ButtomRow.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

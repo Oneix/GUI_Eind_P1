@@ -74,13 +74,20 @@
                     <Grid>
                         <TextBlock Style="{StaticResource DefaultText}" Text="Checks Lijst" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,3,0,0"/>
 
-                        <ListBox x:Name="ListCheckUps" Style="{StaticResource DefaultListBox}" Margin="10,23,10,40">
+                        <ListBox x:Name="ListCheckUps" Style="{StaticResource DefaultListBox}" Margin="10,23,10,40" SelectionMode="Single">
                         </ListBox>
 
-                        <DockPanel  HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                            <Button x:Name="Verwijder" Style="{StaticResource DefaultButton}" Margin="5,5" Height="30" Width="80" Content="Verwijder" Click="Opslaan_Click" HorizontalAlignment="Right"/>
-                            <Button x:Name="OpslaanList" Style="{StaticResource DefaultButton}" Margin="5,5" Height="30" Width="80" Content="Opslaan" Click="Opslaan_Click" HorizontalAlignment="Right"/>
-                        </DockPanel>
+                        <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Button Grid.Column="0" x:Name="Verwijder" Style="{StaticResource DefaultButton}" Margin="5,5" Width="100" Height="30"  Content="Verwijderen" Click="Opslaan_Click" HorizontalAlignment="Center"/>
+                            <Button Grid.Column="1" x:Name="OpslaanList" Style="{StaticResource DefaultButton}" Margin="5,5" Width="100" Height="30" Content="Opslaan" Click="Opslaan_Click" HorizontalAlignment="Center"/>
+                            <Button Grid.Column="2" x:Name="Toevoegen" Style="{StaticResource DefaultButton}" Margin="5,5" Width="100" Height="30" Content="Toevoegen" Click="Opslaan_Click" HorizontalAlignment="Center"/>
+                        </Grid>
                     </Grid>
 
                 </Border>
@@ -100,16 +107,16 @@
                                 <Border Background="{StaticResource Background2Brush}" Height="32" Margin="2" CornerRadius="5">
                                     <DockPanel>
                                         <TextBlock Style="{StaticResource DefaultText}" Text="Prijs:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5"/>
-                                        <TextBox  x:Name="PrijsTextBox" Style="{StaticResource DefaultTextBox}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Height="30" Padding="0,7,0,0" Width="150" TextAlignment="Center" TextChanged="PrijsTextBox_TextChanged"/>
+                                        <TextBox  x:Name="PrijsTextBox" Style="{StaticResource DefaultTextBox}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Height="30" Padding="0,7,0,0" Width="150" TextAlignment="Center" TextChanged="PrijsTextBox_TextChanged" PreviewTextInput="NumberOnlyTextBox_PreviewTextInput"/>
                                     </DockPanel>
                                 </Border>
-                                <Border Background="{StaticResource Background2Brush}" Height="32" Margin="2" CornerRadius="5">
+                                <Border Background="{StaticResource Background2Brush}" Height="32" Margin="2" CornerRadius="5" x:Name="ConditieHolder">
                                     <DockPanel >
                                         <TextBlock Style="{StaticResource DefaultText}" Text="Conditie:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5"/>
                                         <ComboBox x:Name="ConditieComboBox"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Height="30" Padding="0,7,0,0" Width="150" SelectionChanged="ConditieComboBox_SelectionChanged"/>
                                     </DockPanel>
                                 </Border>
-                                <Border Background="{StaticResource Background2Brush}" Height="32" Margin="2" CornerRadius="5">
+                                <Border Background="{StaticResource Background2Brush}" Height="32" Margin="2" CornerRadius="5" x:Name="DefectHolder">
                                     <DockPanel >
                                         <TextBlock Style="{StaticResource DefaultText}" Text="Defect:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5"/>
                                         <CheckBox x:Name="DefectComboBox"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Height="15" Width="15" Checked="DefectComboBox_Checked" Unchecked="DefectComboBox_Unchecked"/>
@@ -123,7 +130,7 @@
                 </Border>
                 <Border  Grid.Column="2" Background="{StaticResource Background2Brush}" Margin="4" CornerRadius="5">
                     <Grid>
-                        <TextBlock Style="{StaticResource DefaultText}" Text="Datum Check-up" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,3,0,0"/>
+                        <TextBlock Style="{StaticResource DefaultText}" Text="Datum binnen" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,3,0,0"/>
                         
 
                         <Border Margin="10,23,10,10" Background="{StaticResource BackgroundBrush}" CornerRadius="5">

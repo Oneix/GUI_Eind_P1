@@ -9,11 +9,45 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
+using static GUI_Eind_P1.Core.SerClasses;
+using StringManager;
 
 namespace ProductManagement
 {
     class ProductManager
     {
+        public static int CurrentLaptop = -1;
+
+        public static bool IsInspectingProduct = false;
+        public static SerClasses.Product CurrentProductInspected = null;
+
+        public static void InspectProduct(SerClasses.Product product)
+        {
+            CurrentLaptop = product.Index;
+
+            IsInspectingProduct = true;
+            CurrentProductInspected = product;
+            UiElementsManagement.InspectProductGUI(product);
+        }
+        public static void StopInspecting()
+        {
+            CurrentLaptop = -1;
+
+            IsInspectingProduct = false;
+            CurrentProductInspected = null;
+            UiElementsManagement.InspectProductGUI(null);
+        }
+
+        public static void RefreshProductsData()
+        {
+            int i = 0;
+            foreach (var prod in Data.Laptops)
+            {
+                prod.Index = i;
+                i++;
+            }
+        }
+
         public static void AddProductData(SerClasses.Product product)
         {
             Data.Laptops.Add(product);
@@ -81,7 +115,7 @@ namespace ProductManagement
             }
             else
             {
-                descriptionText.Text = $"● Moet gecheckd worden";
+                descriptionText.Text = $"● Check-up nodig ● € {product.Prijs:N2}";
             }
 
             textPanel.Children.Add(titleText);
@@ -96,5 +130,44 @@ namespace ProductManagement
 
             MainWindow.Instance.ParentProducts.Children.Add(mainGrid);
         }
+
+        public static void SaveProduct()
+        {
+            Data.Laptops[CurrentLaptop].Naam = MainWindow.Instance.NaamTextBox.Text;
+            Data.Laptops[CurrentLaptop].Prijs = int.Parse(MainWindow.Instance.PrijsTextBox.Text);
+
+            Data.Laptops[CurrentLaptop].Checkups.Clear();
+            foreach (object prod in MainWindow.Instance.ListCheckUps.Items)
+            {
+                SerClasses.Checkup product = prod as SerClasses.Checkup;
+                if (product != null)
+                {
+                    Data.Laptops[CurrentLaptop].Checkups.Add(product);
+                }
+            }
+
+
+            Data.Laptops[CurrentLaptop].DatumBinnen = MainWindow.Instance.DatumPickerChecker.SelectedDate;
+
+            UiElementsManagement.RefreshProducts();
+        }
+
+        public static void RemoveProduct()
+        {
+            Data.Laptops.RemoveAt(CurrentLaptop);
+            UiElementsManagement.RefreshProducts();
+
+            StopInspecting();
+        }
+
+        public static void Dublicate()
+        {
+            Product originalLaptop = Data.Laptops[CurrentLaptop];
+            Product newlaptop = new Product(originalLaptop.DatumBinnen.Value, StringManagement.GetUniqueName(originalLaptop.Naam), originalLaptop.PathImage, originalLaptop.Prijs, originalLaptop.Checkups);
+            Data.Laptops.Add(newlaptop);
+
+            UiElementsManagement.RefreshProducts();
+        }
+
     }
 }
