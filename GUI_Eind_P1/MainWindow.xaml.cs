@@ -253,5 +253,10 @@ namespace GUI_Eind_P1
                 DefectHolder.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void Sluiten(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
