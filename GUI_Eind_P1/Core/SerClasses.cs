@@ -15,9 +15,14 @@ namespace GUI_Eind_P1.Core
         [System.Serializable]
         public class Checkup
         {
+            public string checkupNaam {  get; set; }
             public Conditie Conditie { get; set; }
-
             public bool Defect { get; set; }
+
+            public override string ToString()
+            {
+                return checkupNaam;
+            }
 
         }
 

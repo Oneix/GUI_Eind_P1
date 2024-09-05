@@ -24,6 +24,14 @@ namespace GUI_Eind_P1.Core
         {
             MainWindow.Instance.MiddleRow.Visibility = Visibility.Collapsed;
             MainWindow.Instance.ButtomRow.Visibility = Visibility.Collapsed;
+
+            MainWindow.Instance.ConditieComboBox.Items.Clear();
+            foreach (var conditie in Enum.GetValues(typeof(SerClasses.Conditie)))
+            {
+                MainWindow.Instance.ConditieComboBox.Items.Add(conditie);
+            }
+            MainWindow.Instance.ConditieComboBox.SelectedIndex = 0;
+
         }
 
 
@@ -56,13 +64,13 @@ namespace GUI_Eind_P1.Core
                 MainWindow.Instance.NaamTextBox.Text = prod.Naam;
                 MainWindow.Instance.PrijsTextBox.Text = prod.Prijs.ToString();
 
-                if(prod?.Checkups?.Any() == true && MainWindow.Instance.ListCheckUps.SelectedItem != null)
+                if(prod?.Checkups?.Any() == true && MainWindow.Instance.ListBoxCheckUps.SelectedItem != null)
                 {
                     MainWindow.Instance.ConditieHolder.Visibility = Visibility.Visible;
                     MainWindow.Instance.DefectHolder.Visibility = Visibility.Visible;
 
-                    MainWindow.Instance.ConditieComboBox.SelectedValue = (int)prod.Checkups[MainWindow.Instance.ListCheckUps.SelectedIndex].Conditie;
-                    MainWindow.Instance.DefectComboBox.IsChecked = prod.Checkups.Last().Defect;
+                    MainWindow.Instance.ConditieComboBox.SelectedValue = (int)prod.Checkups[MainWindow.Instance.ListBoxCheckUps.SelectedIndex].Conditie;
+                    MainWindow.Instance.DefectComboBox.IsChecked = prod.Checkups[MainWindow.Instance.ListBoxCheckUps.SelectedIndex].Defect;
                 }
                 else
                 {
@@ -72,6 +80,22 @@ namespace GUI_Eind_P1.Core
 
                 MainWindow.Instance.DatumPickerChecker.SelectedDate = prod.DatumBinnen;
                 MainWindow.Instance.CalenderChecker.SelectedDate = prod.DatumBinnen;
+
+                MainWindow.Instance.ListBoxCheckUps.Items.Clear();
+                foreach (var check in prod.Checkups)
+                {
+                    MainWindow.Instance.ListBoxCheckUps.Items.Add(check);
+                }
+
+                if(string.IsNullOrEmpty(prod.PathImage))
+                {
+                    MainWindow.Instance.Image.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    MainWindow.Instance.DisplaySelectedImage(prod.PathImage);
+                }
+
             }
             else
             {

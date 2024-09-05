@@ -23,6 +23,19 @@ namespace ProductManagement
 
         public static void InspectProduct(SerClasses.Product product)
         {
+            if (IsInspectingProduct && CurrentLaptop != product.Index && Data.DirtyView == true)
+            {
+                Data.DirtyView = false;
+                switch (MessageBox.Show("Wil je het product opslaan?", "Product Manager", MessageBoxButton.YesNoCancel))
+                {
+                    case MessageBoxResult.Yes:
+                        SaveProduct();
+                        break;
+                    case MessageBoxResult.Cancel:
+                        return;
+                }
+            }
+
             CurrentLaptop = product.Index;
 
             IsInspectingProduct = true;
@@ -137,7 +150,7 @@ namespace ProductManagement
             Data.Laptops[CurrentLaptop].Prijs = int.Parse(MainWindow.Instance.PrijsTextBox.Text);
 
             Data.Laptops[CurrentLaptop].Checkups.Clear();
-            foreach (object prod in MainWindow.Instance.ListCheckUps.Items)
+            foreach (object prod in MainWindow.Instance.ListBoxCheckUps.Items)
             {
                 SerClasses.Checkup product = prod as SerClasses.Checkup;
                 if (product != null)
@@ -163,7 +176,12 @@ namespace ProductManagement
         public static void Dublicate()
         {
             Product originalLaptop = Data.Laptops[CurrentLaptop];
-            Product newlaptop = new Product(originalLaptop.DatumBinnen.Value, StringManagement.GetUniqueName(originalLaptop.Naam), originalLaptop.PathImage, originalLaptop.Prijs, originalLaptop.Checkups);
+            List<SerClasses.Checkup> checkups = new List<SerClasses.Checkup>();
+            foreach (Checkup checkup in originalLaptop.Checkups)
+            {
+                checkups.Add(checkup);
+            }
+            Product newlaptop = new Product(originalLaptop.DatumBinnen.Value, StringManagement.GetUniqueName(originalLaptop.Naam), originalLaptop.PathImage, originalLaptop.Prijs, checkups);
             Data.Laptops.Add(newlaptop);
 
             UiElementsManagement.RefreshProducts();

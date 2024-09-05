@@ -9,5 +9,7 @@ namespace GUI_Eind_P1.Core
     internal class Data
     {
         public static List<SerClasses.Product> Laptops = new List<SerClasses.Product>();
+
+        public static bool DirtyView = false;
     }
 }

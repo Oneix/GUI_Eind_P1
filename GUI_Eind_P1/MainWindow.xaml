@@ -74,7 +74,7 @@
                     <Grid>
                         <TextBlock Style="{StaticResource DefaultText}" Text="Checks Lijst" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,3,0,0"/>
 
-                        <ListBox x:Name="ListCheckUps" Style="{StaticResource DefaultListBox}" Margin="10,23,10,40" SelectionMode="Single">
+                        <ListBox x:Name="ListBoxCheckUps" Style="{StaticResource DefaultListBox}" Margin="10,23,10,40" SelectionMode="Single" SelectionChanged="ListBoxCheckUps_SelectionChanged">
                         </ListBox>
 
                         <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
@@ -84,9 +84,8 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             
-                            <Button Grid.Column="0" x:Name="Verwijder" Style="{StaticResource DefaultButton}" Margin="5,5" Width="100" Height="30"  Content="Verwijderen" Click="Opslaan_Click" HorizontalAlignment="Center"/>
-                            <Button Grid.Column="1" x:Name="OpslaanList" Style="{StaticResource DefaultButton}" Margin="5,5" Width="100" Height="30" Content="Opslaan" Click="Opslaan_Click" HorizontalAlignment="Center"/>
-                            <Button Grid.Column="2" x:Name="Toevoegen" Style="{StaticResource DefaultButton}" Margin="5,5" Width="100" Height="30" Content="Toevoegen" Click="Opslaan_Click" HorizontalAlignment="Center"/>
+                            <Button Grid.Column="0" x:Name="VerwijderListboxItem" Style="{StaticResource DefaultButton}" Margin="5,5" Width="100" Height="30"  Content="Verwijderen" Click="VerwijderListboxItem_Click" HorizontalAlignment="Center"/>
+                            <Button Grid.Column="2" x:Name="ToevoegenListboxItem" Style="{StaticResource DefaultButton}" Margin="5,5" Width="100" Height="30" Content="Toevoegen" Click="ToevoegenListboxItem_Click" HorizontalAlignment="Center"/>
                         </Grid>
                     </Grid>
 
@@ -181,6 +180,15 @@
                             <Button x:Name="AddPic" Style="{StaticResource DefaultButton}" Margin="2" Click="AddPic_Click" Grid.Row="0">
                                 <Icon:PackIconMaterial Kind="Attachment" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" Margin="12,0,0,0" Height="50" Width="50"/>
                             </Button>
+                            <Grid x:Name="Image" Margin="5" Visibility="Hidden">
+                                <Grid>
+                                    <Border x:Name="ImageBorder" CornerRadius="5" Margin="5"  IsHitTestVisible="False" >
+                                        <Border.Background>
+                                            <ImageBrush x:Name="ImageBrush" Stretch="UniformToFill" />
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Border>
