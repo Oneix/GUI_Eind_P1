@@ -15,12 +15,7 @@ namespace GUI_Eind_P1.Core
         [System.Serializable]
         public class Checkup
         {
-            public string Naam { get; set; }
-            public string DatumBinnen { get; set; }
-
-            public string PathImage { get; set; }
-
-            public int Prijs { get; set; }
+            public string Datum;
 
             public Conditie Conditie { get; set; }
 
@@ -31,7 +26,24 @@ namespace GUI_Eind_P1.Core
         [System.Serializable]
         public class Product
         {
-            public Checkup[] checkups {  get; set; }
+            public string Naam { get; set; }
+            public string PathImage { get; set; }
+
+            public int Prijs { get; set; }
+
+            public Checkup[] Checkups {  get; set; }
+
+            public Product(string naam = "", string pathImage = "", int prijs = 0, Checkup[] checkups = null)
+            {
+                Naam = naam;
+                PathImage = pathImage;
+                Prijs = prijs;
+
+                if (checkups != null)
+                {
+                    Checkups = checkups;
+                }
+            }
         }
     }
 }

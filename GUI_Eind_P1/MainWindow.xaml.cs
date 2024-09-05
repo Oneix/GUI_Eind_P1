@@ -17,18 +17,46 @@ namespace GUI_Eind_P1
     /// </summary>
     public partial class MainWindow : Window
     {
+        //static vars
+
+        //intance
+        public static MainWindow Instance;
+
+
+
+
+
         //private vars
 
         //booleans
         bool canChangeDates = true;
 
+
+
+
         public MainWindow()
         {
             InitializeComponent();
             SetupVars();
+            UiElementsManagement.Start();
         }
+
+
         private void SetupVars()
         {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                if(Instance != this)
+                {
+                    Instance.Close();
+                    Instance = this;
+                }
+            }
+
             canChangeDates = true;
         }
 
@@ -46,11 +74,22 @@ namespace GUI_Eind_P1
         {
 
         }
+        private void AddPic_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        public void ProductClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
         private void ConditieComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+
 
         private void DefectComboBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -61,6 +100,9 @@ namespace GUI_Eind_P1
         {
 
         }
+
+
+
 
         private void PrijsTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -97,11 +139,6 @@ namespace GUI_Eind_P1
             canChangeDates = false;
             await Task.Delay(100);
             canChangeDates = true;
-        }
-
-        private void AddPic_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
