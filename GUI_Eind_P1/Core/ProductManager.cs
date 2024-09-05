@@ -21,6 +21,12 @@ namespace ProductManagement
         public static bool IsInspectingProduct = false;
         public static SerClasses.Product CurrentProductInspected = null;
 
+        public async static void DisableFalseDirtyView()
+        {
+            await Task.Delay(50);
+            Data.DirtyView = false;
+        }
+
         public static void InspectProduct(SerClasses.Product product)
         {
             if (IsInspectingProduct && CurrentLaptop != product.Index && Data.DirtyView == true)
@@ -44,6 +50,8 @@ namespace ProductManagement
         }
         public static void StopInspecting()
         {
+            Data.DirtyView = false;
+
             CurrentLaptop = -1;
 
             IsInspectingProduct = false;

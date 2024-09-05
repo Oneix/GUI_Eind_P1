@@ -102,6 +102,8 @@ namespace GUI_Eind_P1.Core
                 MainWindow.Instance.MiddleRow.Visibility = Visibility.Collapsed;
                 MainWindow.Instance.ButtomRow.Visibility = Visibility.Collapsed;
             }
+
+            ProductManager.DisableFalseDirtyView();
         }
     }
 }
