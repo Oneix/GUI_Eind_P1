@@ -32,7 +32,6 @@ namespace GUI_Eind_P1.Core
             }
             MainWindow.Instance.ConditieComboBox.SelectedIndex = 0;
 
-            MainWindow.Instance.Show(MainWindow.Instance.StartpaginaView);
         }
 
 

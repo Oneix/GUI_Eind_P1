@@ -32,7 +32,7 @@ namespace GUI_Eind_P1
         //private vars
 
         //booleans
-        bool canChangeDates = true;
+       bool canChangeDates = true;
 
 
 
@@ -53,7 +53,7 @@ namespace GUI_Eind_P1
             }
             else
             {
-                if (Instance != this)
+                if(Instance != this)
                 {
                     Instance.Close();
                     Instance = this;
@@ -233,7 +233,7 @@ namespace GUI_Eind_P1
         }
 
 
-
+        
 
         private void ListBoxCheckUps_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -257,32 +257,6 @@ namespace GUI_Eind_P1
         private void Sluiten(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
-        {
-            RadioButton radioButton = (RadioButton)sender;
-            switch (radioButton.Name)
-            {
-                case "Startpagina":
-                    ShowView(StartpaginaView);
-                    break;
-                case "Checkups":
-                    ShowView(CheckUpsView);
-                    break;
-                case "Team":
-                    ShowView(TeamView);
-                    break;
-            }
-        }
-
-        public void ShowView(Grid view)
-        {
-            StartpaginaView.Visibility = Visibility.Collapsed;
-            CheckUpsView.Visibility = Visibility.Collapsed;
-            TeamView.Visibility = Visibility.Collapsed;
-
-            view.Visibility = Visibility.Visible;
         }
     }
 }
